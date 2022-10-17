@@ -1,6 +1,6 @@
 var searchHistory = [];
 var weatherApiRootUrl = 'https://api.openweathermap.org';
-var weatherApiKey = 'd91f911bcf2c0f925fb6535547a5ddc9';
+var weatherApiKey = '70fbb12d961b1c3423e4f3d7e6ae3236';
 
 var searchForm = document.querySelector('#search-form');
 var searchInput = document.querySelector('#search-input');
