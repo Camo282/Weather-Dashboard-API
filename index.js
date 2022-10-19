@@ -42,7 +42,7 @@ var loadSearchHistory = function() {
 };
 
 var currentWeatherSection = function() {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}`)
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid=${apiKey}`)
     .then(function(response) {
         return response.json();
     })
@@ -50,7 +50,7 @@ var currentWeatherSection = function() {
         var cityLon = response.coord.lon;
         var cityLat = response.coord.lat;
 
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={apiKey}`)
         .then(function(response) {
             return response.json();
         })
@@ -177,3 +177,17 @@ $("#search-form").on("submit", function() {
         fiveDayForecastSection(cityName);
     }
 });
+
+// called when a search history entry is clicked
+$("#search-history-container").on("click", "p", function() {
+    // get text (city name) of entry and pass it as a parameter to display weather conditions
+    var previousCityName = $(this).text();
+    currentWeatherSection(previousCityName);
+    fiveDayForecastSection(previousCityName);
+
+    //
+    var previousCityClicked = $(this);
+    previousCityClicked.remove();
+});
+
+loadSearchHistory();

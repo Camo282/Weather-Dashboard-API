@@ -128,3 +128,10 @@
     font-size: 17px;
     font-weight: 200;
 }
+
+.weather-header {
+    background: #20084a;
+    background: -webkit-linear-gradient(right, #20084a, #3463bc);
+    background: -moz-linear-gradient(right, #20084a, #3463bc);
+    background: linear-gradient(to left, #20084a, #3463bc);
+  }
